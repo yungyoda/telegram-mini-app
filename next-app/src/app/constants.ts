@@ -1,5 +1,5 @@
 import { createThirdwebClient, getContract } from "thirdweb";
-import { baseSepolia, defineChain } from "thirdweb/chains";
+import { baseSepolia, defineChain, base } from "thirdweb/chains";
 import { inAppWallet, SmartWalletOptions } from "thirdweb/wallets";
 
 // Replace this with your client ID string
@@ -14,7 +14,7 @@ export const client = createThirdwebClient({
 	clientId: clientId,
 });
 
-export const chain = baseSepolia;
+export const chain = base;
 
 export const wallet = inAppWallet({
 	smartAccount: {
