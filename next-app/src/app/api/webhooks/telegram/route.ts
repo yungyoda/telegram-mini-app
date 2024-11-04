@@ -5,7 +5,7 @@ import { createThirdwebClient } from 'thirdweb'
 // Initialize thirdweb client and admin account
 const adminAccount = privateKeyToAccount({
   privateKey: process.env.ADMIN_SECRET_KEY as string,
-  client: createThirdwebClient({ clientId: process.env.THIRDWEB_CLIENT_ID as string }),
+  client: createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_CLIENT_ID as string }),
 })
 
 export async function POST(request: Request) {
