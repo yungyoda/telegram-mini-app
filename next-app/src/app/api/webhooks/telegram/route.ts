@@ -9,6 +9,7 @@ const adminAccount = privateKeyToAccount({
 })
 
 export async function POST(request: Request) {
+  console.log('POST request received')
   try {
     const body = await request.json()
     console.log('body', body)
