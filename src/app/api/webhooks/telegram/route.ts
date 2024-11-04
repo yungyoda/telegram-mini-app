@@ -19,40 +19,54 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true })
     }
 
-    const username = body.message.from.id.toString()
-    const expiration = Date.now() + 600_000 // valid for 10 minutes
+    const chatId = body.message.chat.id; // Get chat ID from the incoming message
+    const username = body.message.from.id.toString();
+    const expiration = Date.now() + 600_000; // valid for 10 minutes
     const message = JSON.stringify({
       username,
       expiration,
-    })
+    });
     
     const authCode = await adminAccount.signMessage({
       message,
-    })
+    });
 
     // Create the inline keyboard button with web app
-    const keyboard = {
-      inline_keyboard: [[
+    const inlineKeyboard = [
+      [
         {
           text: 'Veme Whitelist App',
           web_app: {
             url: `${process.env.FRONTEND_APP_ORIGIN}/login/telegram?signature=${authCode}&message=${encodeURI(message)}`
           }
-        }
-      ]]
-    }
+        },
+      ],
+      [{ text: "LEARN MORE!", url: "https://veme.com" }],
+    ];
+    const replyMarkup = { inline_keyboard: inlineKeyboard };
+    const welcomeMessage = `Welcome to the VEME WHITELIST!
+Join the Meme Army!`;
 
     // Prepare the response for Telegram's API
     const response = {
       method: 'sendMessage',
-      chat_id: body.message.chat.id,
-      text: 'Pick an app to launch.',
-      reply_markup: keyboard
-    }
+      chat_id: chatId,
+      text: welcomeMessage,
+      reply_markup: replyMarkup
+    };
 
-    return NextResponse.json(response)
+    // Send the response to Telegram API
+    await fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(response),
+    });
+
+    return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('Webhook error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Webhook error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
