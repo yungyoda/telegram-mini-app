@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     console.log('body', body)
-    
+
     // Verify this is a message and specifically a /start command
     if (!body.message?.text || body.message.text !== '/start') {
       return NextResponse.json({ ok: true })
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       username,
       expiration,
     });
-    
+
     const authCode = await adminAccount.signMessage({
       message,
     });
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         {
           text: 'Veme Whitelist App',
           web_app: {
-            url: `${process.env.FRONTEND_APP_ORIGIN}/login/telegram?signature=${authCode}&message=${encodeURI(message)}`
+            url: `https://veme-tg-whitelist.vercel.app/login/telegram?signature=${authCode}&message=${encodeURI(message)}`
           }
         },
       ],
@@ -54,6 +54,7 @@ Join the Meme Army!`;
       text: welcomeMessage,
       reply_markup: replyMarkup
     };
+    console.log('sending response to telegram');
 
     // Send the response to Telegram API
     await fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
