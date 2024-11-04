@@ -16,6 +16,7 @@ export default function Home() {
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
       <div className="py-20">
         <Header />
+        {/* conditionally connect to the wallet */}
         <AutoConnect client={client} wallets={[wallet]}/>
         <div className="flex justify-center mb-20">
           {account ? 
