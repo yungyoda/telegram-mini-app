@@ -169,7 +169,7 @@ VyLmI3NjFmYjExLmpzIC0tPgo8L2JvZHk+CiAgICAgICAgPC9odG1sPg=="
           {account ?
             (
               <>
-                <Button onClick={() => (window as any).Telegram.WebApp.openLink(`https://veme.com`)} className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">Your Whitelisted Account: {shortenAddress(account.address)}</Button>
+                <Button onClick={() => (window as any).Telegram.WebApp.openLink(`https://veme.com`)} className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">All Set! Your Whitelisted Account: {shortenAddress(account.address)}</Button>
               </>
             )
             : (
