@@ -39,7 +39,7 @@ export default function Home() {
           <br />
           unlocking the meme 
           <br />
-          economy together?
+          economy together? 
         </h1>
 
         <p className="text-black mb-2 md:mb-8 max-w-lg mx-auto text-sm font-semibold">
