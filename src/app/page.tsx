@@ -1,61 +1,89 @@
-export default function Component() {
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import logo from "../assets/logo.svg";
+import Link from "next/link";
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-purple-900 p-4 flex items-center justify-center">
-      {/* Card Container */}
-      <div className="bg-white rounded-3xl p-8 max-w-2xl w-full text-center">
-        {/* Logo */}
-        <div className="w-24 h-24 mx-auto mb-6">
-          <img 
-            src="/placeholder.svg?height=96&width=96" 
-            alt="Meme Army Logo" 
-            className="w-full h-full object-contain"
-          />
-        </div>
+    <div
+      className="min-h-screen flex items-center justify-center p-4"
+      style={{
+        background: "url(/background.png)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="bg-white rounded-3xl p-4 md:p-8 max-w-2xl w-full text-center relative">
+        <Image
+          src={logo}
+          alt="Meme Army logo"
+          width={120}
+          height={120}
+          className="mx-auto mb-6"
+        />
 
-        {/* Heading */}
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">
-          <span className="text-yellow-400">Join The </span>
-          <span className="text-pink-400">Meme.</span>
-          <span className="text-purple-400">Army</span>
-        </h1>
-
-        {/* Main Title */}
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          Imagine <span className="text-pink-500">100M</span> people
-          <br />unlocking the meme
-          <br />economy together?
+        <h2 className="text-2xl mb-4 font-black font-army">
+          <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-transparent bg-clip-text">
+            Join The{" "}
+          </span>
+          <span className="bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">
+            Meme.Army
+          </span>
         </h2>
 
-        {/* Description */}
-        <p className="text-gray-600 mb-8 max-w-lg mx-auto">
-          The Meme.Army more than just a new meme token launchpad. It's a place
+        <h1 className="text-3xl lg:text-5xl font-extrabold mb-4 text-black font-army">
+          Imagine <span className="text-pink-500">100M</span> people
+          <br />
+          unlocking the meme
+          <br />
+          economy together?
+        </h1>
+
+        <p className="text-black mb-2 md:mb-8 max-w-lg mx-auto text-sm font-semibold">
+          The Meme.Army more than just a new meme token launchpad. It&apos;s a place
           where you will unlock financial freedom in the new Meme Economy.
         </p>
 
-        {/* Whitelist Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-left">
-          <p className="flex-1">
-            We are opening our early Whitelist: those who sign up will get{' '}
-            <span className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              first access to mint new tokens and kickstart the movement.
+        <div className="flex flex-col md:flex-row items-center justify-between p-4 rounded-xl">
+          <p className="text-sm text-black font-semibold text-center md:text-left">
+            We are opening our early Whitelist: those who
+            <br className="hidden md:block" />
+            sign up will get{" "}
+            <span className="text-[#AA014A]">
+              first access to mint new
+              <br className="hidden md:block" />
+              tokens and kickstart the movement.
             </span>
           </p>
-          
-          {/* Button */}
-          <button className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2 whitespace-nowrap">
-            <span>Whitelist Now</span>
-            <svg 
-              className="w-4 h-4" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
+
+          <Link
+            href="https://t.me/VemeWhitelistBot"
+            target="_blank"
+            className="bg-black text-white px-6 py-3 rounded-full flex items-center mt-4 md:mt-0 gap-2"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M5 12h14m-7-7l7 7-7 7" />
+              <path
+                d="M12.5625 5.25L19.3125 12L12.5625 18.75M18.375 12H4.6875"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
-          </button>
+
+            <span>Whitelist Now</span>
+          </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
