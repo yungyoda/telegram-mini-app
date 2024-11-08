@@ -4,8 +4,12 @@ import React from "react";
 import Image from "next/image";
 import logo from "../assets/logo.svg";
 import Link from "next/link";
+import { useActiveAccount } from "thirdweb/react";
+import { shortenAddress } from "thirdweb/utils";
 
 export default function Home() {
+  const account = useActiveAccount();
+
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4"
@@ -37,14 +41,14 @@ export default function Home() {
         <h1 className="text-3xl lg:text-5xl font-extrabold mb-4 text-black font-army">
           Imagine <span className="text-pink-500">100M</span> people
           <br />
-          unlocking the meme 
+          unlocking the meme
           <br />
-          economy together? 
+          economy together?
         </h1>
 
         <p className="text-black mb-2 md:mb-8 max-w-lg mx-auto text-sm font-semibold">
-          The Meme.Army more than just a new meme token launchpad. It&apos;s a place
-          where you will unlock financial freedom in the new Meme Economy.
+          The Meme.Army more than just a new meme token launchpad. It&apos;s a
+          place where you will unlock financial freedom in the new Meme Economy.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-between p-4 rounded-xl">
@@ -59,6 +63,10 @@ export default function Home() {
             </span>
           </p>
 
+          {
+            account ? (
+              <p className="text-sm text-zinc-400">All Set! Your Whitelisted Account: {shortenAddress(account.address)}</p>
+            ) : (
           <Link
             href="https://t.me/VemeWhitelistBot"
             target="_blank"
@@ -80,8 +88,9 @@ export default function Home() {
               />
             </svg>
 
-            <span>Whitelist Now</span>
-          </Link>
+              <span>Whitelist Now</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>
