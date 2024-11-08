@@ -37,7 +37,7 @@ export default function Home() {
         <h1 className="text-3xl lg:text-5xl font-extrabold mb-4 text-black font-army">
           Imagine <span className="text-pink-500">100M</span> people
           <br />
-          unlocking the meme
+          unlocking the meme 
           <br />
           economy together?
         </h1>
