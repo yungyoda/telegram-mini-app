@@ -148,4 +148,4 @@ Now that the user is connected, they'll be redirected to the homepage where they
 
 For help or feedback, please [visit our support site](https://thirdweb.com/support)
 
-booppp
+boopppp
