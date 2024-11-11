@@ -35,17 +35,25 @@ export async function POST(request: Request) {
     const inlineKeyboard = [
       [
         {
-          text: 'Veme Whitelist App',
+          text: 'Whitelist Now!',
           web_app: {
             url: `https://veme-tg-whitelist.vercel.app/login/telegram?signature=${authCode}&message=${encodeURI(message)}`
           }
         },
       ],
-      [{ text: "LEARN MORE!", url: "https://veme.com" }],
+      [{ text: "LEARN MORE!", url: "https://meme.army" }],
     ];
     const replyMarkup = { inline_keyboard: inlineKeyboard };
-    const welcomeMessage = `Welcome to the VEME WHITELIST!
-Join the Meme Army!`;
+    const welcomeMessage = `Welcome Dogerus To The Meme Army
+You have been called to join the faction of 100M people who will unlock financial abundance through the great and holy power of the MEME
+But FIRST, you must whitelist below.
+We will contact you when the Meme Army Launchpad & Mini-App are ready.
+Those who whitelist will be the FIRST to gain access to the tokens and all of the features
+Much Excitement
+Such Anticipation
+Wow!
+~~~
+Master Shibunatha`;
 
     // Prepare the response for Telegram's API
     const response = {
