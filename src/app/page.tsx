@@ -68,7 +68,7 @@ export default function Home() {
               <p className="text-sm text-zinc-400">All Set! Your Whitelisted Account: {shortenAddress(account.address)}</p>
             ) : (
           <Link
-            href="https://t.me/VemeWhitelistBot"
+            href="https://t.me/MemeArmyWhitelistBot"
             target="_blank"
             className="bg-black text-white px-6 py-3 rounded-full flex items-center mt-4 md:mt-0 gap-2"
           >
