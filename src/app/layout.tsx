@@ -7,8 +7,8 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Veme Whitelist Bot",
-  description: "Veme Whitelist Bot",
+  title: "Meme Army",
+  description: "Meme Army",
 };
 
 export default function RootLayout({
