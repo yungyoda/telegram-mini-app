@@ -18,6 +18,7 @@ export const chain = base;
 
 export const wallet = inAppWallet({
 	smartAccount: {
+
 		sponsorGas: true,
 		chain: chain
 	}
